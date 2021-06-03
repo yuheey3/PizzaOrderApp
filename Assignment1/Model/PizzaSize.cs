@@ -4,7 +4,7 @@ namespace Assignment1.Model
     public class PizzaSize
     {
         private string _name;
-        private int _price;
+        private double _price;
 
 
         public string name //backing fields
@@ -14,7 +14,7 @@ namespace Assignment1.Model
 
         }
 
-        public int price //backing fields
+        public double price //backing fields
         {
             get { return price; }
             set { _price = value; }
@@ -24,7 +24,7 @@ namespace Assignment1.Model
 
 
 
-        public PizzaSize(string n, int p)
+        public PizzaSize(string n, double p)
         {
             this.name = n;
             this.price = p;

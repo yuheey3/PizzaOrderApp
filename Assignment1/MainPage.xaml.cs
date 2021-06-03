@@ -17,8 +17,12 @@ namespace Assignment1
         private string toppingLabel;
         private string sizeLabel;
         private string qtyLabel;
+        private double pizzaPrice = 10;
+        private double toppingPrice;
+        private double sizePrice;
        
         Manager manager = new Manager();
+        Price price = new Price();
 
 
         public MainPage()
@@ -28,14 +32,17 @@ namespace Assignment1
             toppingList.ItemsSource = manager.toppings;
             sizeList.ItemsSource = manager.sizes;
             BindingContext = this;
-
+            
          
 
 
         }
 
-        
-           
+        public double getToppingPrice(Topping t)
+        {
+            return t.price;
+        }
+
         public string ToppingLabel
              {
                 get { return toppingLabel; }
@@ -75,13 +82,15 @@ namespace Assignment1
         {
             
             ToppingLabel = (e.SelectedItem as Topping).name;
+            toppingPrice = price.getToppingPrice(ToppingLabel);
           
+
         }
 
         void sizeList_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
            SizeLabel = (e.SelectedItem as PizzaSize).name;
-            
+           sizePrice = price.getSizePrice(SizeLabel);
         }
 
         void qtyButton_Clicked(System.Object sender, System.EventArgs e)
@@ -89,6 +98,14 @@ namespace Assignment1
             var btn = (Button)sender;
             QtyLabel = btn.Text;
            
+        }
+
+        void buyButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            double total = 0;
+            total = (pizzaPrice + toppingPrice + sizePrice) * Convert.ToInt32(QtyLabel);
+            var mes = "Your order has now " + QtyLabel + " pizzas, and the total is " + total + " CAD";
+            DisplayAlert("Success!!", mes, "OK");
         }
     }
 }
