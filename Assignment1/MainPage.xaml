@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment1.MainPage">
+
+        <!--<Grid
+     
+        ColumnSpacing="10"
+     >
+
+        
+    <Label Grid.Row="0" Grid.Column="4"  Text="Pizza App" BackgroundColor="Blue" FontSize="Large"
+              TextColor="white" ></Label>
+             <Label Grid.Column="0" Grid.Row="1" Text="3" FontSize="Large"
+               BackgroundColor="Beige"></Label>
+
+            <Image Source="https://images.freeimages.com/images/large-previews/0b1/sweet-cats-2-1563060.jpg" Grid.Row="1" Grid.Column="0"/>
+         <Label Grid.Column="1" Grid.Row="1" Text="MY ORDER" FontSize="Medium"
+               BackgroundColor="Blue"/>
+            <Label Grid.Row="1" Grid.Column="2" Text="4"
+                   BackgroundColor="Yellow" ></Label>
+
+        
+    </Grid>-->
+
+    <StackLayout Margin="0,50,0,0" Orientation="Vertical"  >
+        <Label Text= "Pizza App" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="300" FontSize="Large" BackgroundColor="DodgerBlue" TextColor="White"/>
+       
+
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" >
+  <StackLayout WidthRequest="100" HeightRequest="100" Margin="50,0,0,0">
+      <Image Source="https://images.freeimages.com/images/small-previews/844/pizza-1326346.jpg"/>
+  </StackLayout>
+  <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Margin="100,10,50,0">
+      <Button Text="MY ORDER" BackgroundColor="Blue" TextColor="white" FontAttributes="Bold"/>
+  </StackLayout>
+</StackLayout>
+
+
+<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+  <StackLayout Margin="20,0,0,0" Orientation="Vertical" >
+  <Label Text= "Quantity:" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  FontSize="Large" TextColor="Black" />
+      </StackLayout>
+    <StackLayout  Orientation="Vertical" >
+      <Label Text= "{Binding QtyLabel}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  FontSize="Large" TextColor="Black" />
+  </StackLayout>
+  </StackLayout>
+     
+
+
+    <Grid 
+      ColumnSpacing="20"
+        RowSpacing="10"
+        Margin="50,20,0,0"
+       
+      >
+
+           <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+               <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0" Text="1" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+        
+        <Button Grid.Column="0" Grid.Row="1" Text="4" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked" ></Button>
+        
+        <Button Grid.Column="0" Grid.Row="2" Text="7" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray"  TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+              
+        <Button Grid.Column="0" Grid.Row="3" Text="RESET" FontSize="Medium" TextColor="white" FontAttributes="Bold"
+               BackgroundColor="Red"  ></Button>
+
+        <Button Grid.Column="1" Grid.Row="0" Text="2" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked" ></Button>
+        
+        <Button Grid.Column="1" Grid.Row="1" Text="5" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+        
+        <Button Grid.Column="1" Grid.Row="2" Text="8" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+              
+        <Button Grid.Column="1" Grid.Row="3" Text="0" FontSize="Medium" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+
+        <Button Grid.Column="2" Grid.Row="0" Text="3" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+        
+        <Button Grid.Column="2" Grid.Row="1" Text="6" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+        
+        <Button Grid.Column="2" Grid.Row="2" Text="9" FontSize="Large" FontAttributes="Bold"
+               BackgroundColor="LightGray" TextColor="Black" Clicked="qtyButton_Clicked"></Button>
+              
+        <Button Grid.Column="2" Grid.Row="3" Text="BUY" FontSize="Medium" TextColor="white" FontAttributes="Bold"
+               BackgroundColor="LightGreen" ></Button>
+       
+        
+    </Grid>
+
+
+<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" Margin="0,15,0,0">
+  <StackLayout Margin="20,0,0,0" Orientation="Vertical" >
+  <Label Text= "Topping:" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  FontSize="Medium" TextColor="Black" />
+      </StackLayout>
+    <StackLayout Padding="0,0,50,0" Orientation="Vertical" >
+      <Label Text= "{Binding ToppingLabel}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  FontSize="Medium" TextColor="Black" />
+  </StackLayout>
+    <StackLayout Margin="0,0,0,0" Orientation="Vertical" >
+  <Label Text= "Size:" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  FontSize="Medium" TextColor="Black" />
+      </StackLayout>
+    <StackLayout Margin="0,0,0,0" Orientation="Vertical" >
+      <Label Text= "{Binding SizeLabel}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  FontSize="Medium" TextColor="Black" />
+  </StackLayout>
+  </StackLayout>
+
+
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" Margin="0,20,0,80">
+   <ListView x:Name="toppingList" ItemSelected="toppingList_ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+               <TextCell Text="{Binding name}"  TextColor="DeepPink" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+   <ListView x:Name="sizeList" ItemSelected="sizeList_ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+               <TextCell Text="{Binding name}" TextColor="DeepPink" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+   </StackLayout>
+        </StackLayout>
+
+    </ContentPage>
+
