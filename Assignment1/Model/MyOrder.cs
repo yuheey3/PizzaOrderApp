@@ -13,7 +13,7 @@ namespace Assignment1.Model
         {
             get { return _totalPrice; }
             set { _totalPrice = value; }
-          
+
         }
 
         public int qty //backing fields

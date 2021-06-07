@@ -14,26 +14,26 @@ namespace Assignment1
 
 
     {
-        private string toppingLabel;
-        private string sizeLabel;
-        private string qtyLabel;
-        private double pizzaPrice = 10;
+        private string toppingLabel = "none";
+        private string sizeLabel = "none";
+        private string qtyLabel = "none";
+
         private double toppingPrice;
         private double sizePrice;
-       
+
         Manager manager = new Manager();
-        //Price price = new Price();
+        Price price = new Price();
 
 
         public MainPage()
         {
-           
+
             InitializeComponent();
             toppingList.ItemsSource = manager.toppings;
             sizeList.ItemsSource = manager.sizes;
             BindingContext = this;
-            
-         
+
+
 
 
         }
@@ -44,14 +44,14 @@ namespace Assignment1
         }
 
         public string ToppingLabel
-             {
-                get { return toppingLabel; }
-                set
-                {
-                     toppingLabel = value;
-                    OnPropertyChanged(nameof(ToppingLabel)); // Notify that there was a change on this property
-                }
+        {
+            get { return toppingLabel; }
+            set
+            {
+                toppingLabel = value;
+                OnPropertyChanged(nameof(ToppingLabel)); // Notify that there was a change on this property
             }
+        }
         public string SizeLabel
         {
             get { return sizeLabel; }
@@ -80,7 +80,7 @@ namespace Assignment1
         }
         void toppingList_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            
+
             ToppingLabel = (e.SelectedItem as Topping).name;
             //toppingPrice = price.getToppingPrice(ToppingLabel);
 
@@ -89,24 +89,32 @@ namespace Assignment1
 
         void sizeList_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-           SizeLabel = (e.SelectedItem as PizzaSize).name;
-           //sizePrice = price.getSizePrice(SizeLabel);
-           sizePrice = (e.SelectedItem as PizzaSize).price;
+            SizeLabel = (e.SelectedItem as PizzaSize).name;
+            //sizePrice = price.getSizePrice(SizeLabel);
+            sizePrice = (e.SelectedItem as PizzaSize).price;
         }
 
         void qtyButton_Clicked(System.Object sender, System.EventArgs e)
         {
             var btn = (Button)sender;
             QtyLabel = btn.Text;
-           
+
         }
 
         void buyButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            double total = 0;
-            total = (pizzaPrice + toppingPrice + sizePrice) * Convert.ToInt32(QtyLabel);
-            var mes = "Your order has now " + QtyLabel + " pizzas, and the total is " + total + " CAD";
+            var mes = price.calculateTotalPrice(toppingPrice, sizePrice, Convert.ToInt32(QtyLabel));
+            ToppingLabel = "none";
+            SizeLabel = "none";
+            QtyLabel = "none";
             DisplayAlert("Success!!", mes, "OK");
+        }
+
+        void resetButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            ToppingLabel = "none";
+            SizeLabel = "none";
+            QtyLabel = "none";
         }
     }
 }

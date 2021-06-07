@@ -5,7 +5,7 @@ namespace Assignment1.Model
     {
         private string _name;
         private double _price;
-      
+
 
         public string name //backing fields
         {
@@ -28,7 +28,7 @@ namespace Assignment1.Model
         {
             this.name = n;
             this.price = p;
-            
+
         }
 
     }
