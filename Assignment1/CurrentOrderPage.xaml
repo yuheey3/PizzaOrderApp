@@ -27,7 +27,9 @@
                             </StackLayout>
 
                         </StackLayout>
-
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" Clicked="Delete_Clicked" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

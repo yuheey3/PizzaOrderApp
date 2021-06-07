@@ -55,5 +55,27 @@ namespace Assignment1
             _ = DisplayAlert("Success!!", "Thank you for your ordering!", "OK");
             await Navigation.PushAsync(new ManagerPage(manager));
         }
+
+        void Delete_Clicked(System.Object sender, System.EventArgs e)
+        {
+            var item = sender as MenuItem;
+            
+            var myOrder = (item.CommandParameter as MyOrder);
+
+            //get quantity 
+            var qty = myOrder.qty;
+            var price = myOrder.price;
+
+            //change total quantity and price in the Price object
+            manager.changeTotalQty(qty);
+            manager.changeTotalPrice(price);
+
+            //change label value
+            TotalPrice = (manager.prices.totalPrice).ToString();
+            TotalQty = (manager.prices.totalQty).ToString();
+
+            manager.deletemyOrder(myOrder);
+            
+        }
     }
 }

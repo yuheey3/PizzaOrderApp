@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace Assignment1.Model
 {
 
@@ -7,7 +9,7 @@ namespace Assignment1.Model
     {
         public List<Topping> toppings = new List<Topping>();
         public List<PizzaSize> sizes = new List<PizzaSize>();
-        public List<MyOrder> myOrders = new List<MyOrder>();
+        public ObservableCollection<MyOrder> myOrders = new ObservableCollection<MyOrder>();
         public Price prices = new Price();
 
         public void addTopping(Topping t)
@@ -25,6 +27,20 @@ namespace Assignment1.Model
        
             prices.totalPrice =p;
             prices.totalQty = q;
+        }
+
+        public void changeTotalQty(double q)
+        {
+            prices.totalQty -= q;
+        }
+        public void changeTotalPrice(double p)
+        {
+            prices.totalPrice -= p;
+        }
+
+        public void deletemyOrder(MyOrder o)
+        {
+            myOrders.Remove(o);
         }
 
 
