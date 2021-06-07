@@ -1,4 +1,5 @@
 ﻿using System;
+using Assignment1.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,11 +7,13 @@ namespace Assignment1
 {
     public partial class App : Application
     {
+        Manager manager;
+
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            manager = new Manager();
+            MainPage = new NavigationPage(new MainPage(manager));
         }
 
         protected override void OnStart()

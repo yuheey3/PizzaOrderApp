@@ -22,10 +22,11 @@ namespace Assignment1
         private double sizePrice;
 
         Manager manager = new Manager();
+       
         Price price = new Price();
 
 
-        public MainPage()
+        public MainPage(Manager manager)
         {
 
             InitializeComponent();
@@ -103,7 +104,20 @@ namespace Assignment1
 
         void buyButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            var mes = price.calculateTotalPrice(toppingPrice, sizePrice, Convert.ToInt32(QtyLabel));
+            //calculate single order of price
+            double singleOrderPrice = price.calculatePizzaPrice(toppingPrice, sizePrice, Convert.ToInt32(QtyLabel));
+
+            //calculate total class and return string for messages
+            var mes = price.calculateTotalPrice(singleOrderPrice, Convert.ToInt32(QtyLabel));
+
+            //add single order to myOrder class
+            MyOrder myOrder = new MyOrder();
+            myOrder.addMyOrder(ToppingLabel,SizeLabel, Convert.ToInt32(QtyLabel),singleOrderPrice);
+
+            //add order information to manager class
+            manager.addMyOrderToList(myOrder);
+            manager.AddTotalPriceAndQty(price.totalPrice, price.totalQty);
+
             ToppingLabel = "none";
             SizeLabel = "none";
             QtyLabel = "none";
@@ -115,6 +129,11 @@ namespace Assignment1
             ToppingLabel = "none";
             SizeLabel = "none";
             QtyLabel = "none";
+        }
+
+        async void NavigateToManageButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new ManagerPage(manager));
         }
     }
 }

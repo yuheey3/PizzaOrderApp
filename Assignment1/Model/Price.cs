@@ -32,11 +32,18 @@ namespace Assignment1.Model
         {
 
         }
-
-        public string calculateTotalPrice(double topping, double size, int qty)
+        public double calculatePizzaPrice(double topping, double size, int qty)
         {
 
-            totalPrice += (pizzaPrice + topping + size) * qty;
+            double price = (pizzaPrice + topping + size) * qty;
+
+            return price;
+        }
+
+        public string calculateTotalPrice(double price, int qty)
+        {
+
+            totalPrice += price;
             totalQty += qty;
             var mes = "Your order has now " + totalQty + " pizzas, and the total is " + totalPrice + " CAD";
 

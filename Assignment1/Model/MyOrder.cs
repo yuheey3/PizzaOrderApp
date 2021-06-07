@@ -3,18 +3,14 @@ namespace Assignment1.Model
 {
     public class MyOrder
     {
-        private string _totalPrice;
+
         private int _qty;
         private string _topping;
         private string _size;
+        private double _price;
 
 
-        public string totalPrice //backing fields
-        {
-            get { return _totalPrice; }
-            set { _totalPrice = value; }
-
-        }
+     
 
         public int qty //backing fields
         {
@@ -34,17 +30,33 @@ namespace Assignment1.Model
             set { _size = value; }
 
         }
-
-
-
-
-        public MyOrder(string tp, int q, string t, string s)
+        public double price //backing fields
         {
-            this.totalPrice = tp;
-            this.qty = q;
-            this.topping = t;
-            this.size = s;
+            get { return _price; }
+            set { _price = value; }
+
         }
 
+        public void addMyOrder(String t, String s, int q, double p)
+        {
+            this.topping = t;
+            this.size = s;
+            this.qty = q;
+            this.price = p;
+        }
+
+
+        public MyOrder(string t, string s, int q, double p)
+        {
+ 
+            this.topping = t;
+            this.size = s;
+            this.qty = q;
+            this.price = p;
+        }
+
+        public MyOrder()
+        {
+        }
     }
 }

@@ -2,16 +2,32 @@
 using System.Collections.Generic;
 namespace Assignment1.Model
 {
+
     public class Manager
     {
         public List<Topping> toppings = new List<Topping>();
         public List<PizzaSize> sizes = new List<PizzaSize>();
         public List<MyOrder> myOrders = new List<MyOrder>();
+        public Price prices = new Price();
 
         public void addTopping(Topping t)
         {
             toppings.Add(t);
         }
+
+       public void addMyOrderToList(MyOrder o)
+        {
+            myOrders.Add(o);
+        }
+
+        public void AddTotalPriceAndQty(double p, double q )
+        {
+       
+            prices.totalPrice =p;
+            prices.totalQty = q;
+        }
+
+
 
         public Manager()
         {

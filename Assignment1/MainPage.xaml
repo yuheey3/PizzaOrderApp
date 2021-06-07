@@ -23,8 +23,8 @@
         
     </Grid>-->
 
-    <StackLayout Margin="0,50,0,0" Orientation="Vertical"  >
-        <Label Text= "Pizza App" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="300" FontSize="Large" BackgroundColor="DodgerBlue" TextColor="White"/>
+    <StackLayout Orientation="Vertical"  >
+        <Label Text= "Pizza App" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="200" FontSize="Large" BackgroundColor="DodgerBlue" TextColor="White"/>
 
 
         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" >
@@ -32,7 +32,7 @@
                 <Image Source="https://images.freeimages.com/images/small-previews/844/pizza-1326346.jpg"/>
             </StackLayout>
             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Margin="100,10,50,0">
-                <Button Text="MANAGER" BackgroundColor="Blue" TextColor="white" FontAttributes="Bold"/>
+                <Button Text="MANAGER" BackgroundColor="Blue" TextColor="white" FontAttributes="Bold" Clicked="NavigateToManageButton_Clicked"/>
             </StackLayout>
         </StackLayout>
 
