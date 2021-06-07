@@ -22,7 +22,7 @@ namespace Assignment1
         private double sizePrice;
        
         Manager manager = new Manager();
-        Price price = new Price();
+        //Price price = new Price();
 
 
         public MainPage()
@@ -82,15 +82,16 @@ namespace Assignment1
         {
             
             ToppingLabel = (e.SelectedItem as Topping).name;
-            toppingPrice = price.getToppingPrice(ToppingLabel);
-          
+            //toppingPrice = price.getToppingPrice(ToppingLabel);
 
+            toppingPrice = (e.SelectedItem as Topping).price;
         }
 
         void sizeList_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
            SizeLabel = (e.SelectedItem as PizzaSize).name;
-           sizePrice = price.getSizePrice(SizeLabel);
+           //sizePrice = price.getSizePrice(SizeLabel);
+           sizePrice = (e.SelectedItem as PizzaSize).price;
         }
 
         void qtyButton_Clicked(System.Object sender, System.EventArgs e)

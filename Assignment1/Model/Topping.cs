@@ -16,7 +16,7 @@ namespace Assignment1.Model
 
         public double price //backing fields
         {
-            get { return price; }
+            get { return _price; }
             set { _price = value; }
 
         }

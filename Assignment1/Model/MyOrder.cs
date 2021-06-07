@@ -18,19 +18,19 @@ namespace Assignment1.Model
 
         public int qty //backing fields
         {
-            get { return qty; }
+            get { return _qty; }
             set { _qty = value; }
 
         }
         public string topping //backing fields
         {
-            get { return topping; }
+            get { return _topping; }
             set { _topping = value; }
 
         }
         public string size //backing fields
         {
-            get { return size; }
+            get { return _size; }
             set { _size = value; }
 
         }
