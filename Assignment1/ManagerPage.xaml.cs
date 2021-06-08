@@ -26,5 +26,12 @@ namespace Assignment1
         {
             await Navigation.PushAsync(new MainPage(manager));
         }
+
+        async void NewOrder_Clicked(System.Object sender, System.EventArgs e)
+        {
+            manager.initializeValue();
+            await Navigation.PushAsync(new MainPage(manager));
+        }
+    
     }
 }

@@ -67,6 +67,12 @@ namespace Assignment1.Model
         {
             return prices.totalQty;
         }
+        public void initializeValue()
+        {
+            prices.totalPrice = 0;
+            prices.totalQty = 0;
+            myOrders.Clear();
+        }
 
 
         public Manager()

@@ -9,7 +9,7 @@
             <Button Text="Check Current Order" Clicked="CurrentOrder_Clicked" BackgroundColor="lightGray" TextColor="black" Padding= "20,0,20,0"  FontAttributes="Bold" />
             <Button Text="Update Current Order" Clicked="UpdateOrder_Clicked" BackgroundColor="lightGray" TextColor="black"  FontAttributes="Bold"/>
             <Button Text="Previous Orders"  BackgroundColor="lightGray" TextColor="black" FontAttributes="Bold"/>
-            <Button Text="New Order"  BackgroundColor="lightGray" TextColor="black"  FontAttributes="Bold"/>
+            <Button Text="New Order" Clicked="NewOrder_Clicked" BackgroundColor="lightGray" TextColor="black"  FontAttributes="Bold"/>
         </StackLayout>
        
              <!--<ListView x:Name="sizeList" >
