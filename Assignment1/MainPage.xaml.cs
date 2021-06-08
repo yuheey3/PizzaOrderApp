@@ -26,9 +26,9 @@ namespace Assignment1
         Price price = new Price();
 
 
-        public MainPage(Manager manager)
+        public MainPage(Manager m)
         {
-
+            manager = m;
             InitializeComponent();
             toppingList.ItemsSource = manager.toppings;
             sizeList.ItemsSource = manager.sizes;
@@ -105,14 +105,18 @@ namespace Assignment1
         void buyButton_Clicked(System.Object sender, System.EventArgs e)
         {
             //calculate single order of price
-            double singleOrderPrice = price.calculatePizzaPrice(toppingPrice, sizePrice, Convert.ToInt32(QtyLabel));
+            double singleOrderPrice = manager.calculatePizzaPrice(toppingPrice, sizePrice, Convert.ToInt32(QtyLabel));
 
             //calculate total class and return string for messages
-            var mes = price.calculateTotalPrice(singleOrderPrice, Convert.ToInt32(QtyLabel));
-
+            var mes = manager.calculateTotalPrice(singleOrderPrice, Convert.ToInt32(QtyLabel));
+           
             //add single order to myOrder class
             MyOrder myOrder = new MyOrder();
             myOrder.addMyOrder(ToppingLabel,SizeLabel, Convert.ToInt32(QtyLabel),singleOrderPrice);
+
+            //assign to price object
+            price.totalPrice = manager.getTotalPrice();
+            price.totalQty = manager.getTotalQty();
 
             //add order information to manager class
             manager.addMyOrderToList(myOrder);

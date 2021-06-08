@@ -42,7 +42,31 @@ namespace Assignment1.Model
         {
             myOrders.Remove(o);
         }
+        public double calculatePizzaPrice(double topping, double size, int qty)
+        {
 
+            double price = (prices.pizzaPrice + topping + size) * qty;
+
+            return price;
+        }
+
+        public string calculateTotalPrice(double price, int qty)
+        {
+
+            prices.totalPrice += price;
+            prices.totalQty += qty;
+            var mes = "Your order has now " + prices.totalQty + " pizzas, and the total is " + prices.totalPrice + " CAD";
+
+            return mes;
+        }
+        public double getTotalPrice()
+        {
+            return prices.totalPrice;
+        }
+        public double getTotalQty()
+        {
+            return prices.totalQty;
+        }
 
 
         public Manager()

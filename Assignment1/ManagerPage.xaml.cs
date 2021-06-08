@@ -17,13 +17,14 @@ namespace Assignment1
             //BindingContext = this;
         }
 
-        async void Button_Clicked(System.Object sender, System.EventArgs e)
+        async void CurrentOrder_Clicked(System.Object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new CurrentOrderPage(manager));
         }
 
-        void Button_Clicked_1(System.Object sender, System.EventArgs e)
+        async void UpdateOrder_Clicked(System.Object sender, System.EventArgs e)
         {
+            await Navigation.PushAsync(new MainPage(manager));
         }
     }
 }

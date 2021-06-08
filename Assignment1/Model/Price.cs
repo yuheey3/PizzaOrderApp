@@ -33,22 +33,22 @@ namespace Assignment1.Model
 
         }
        
-        public double calculatePizzaPrice(double topping, double size, int qty)
-        {
+        //public double calculatePizzaPrice(double topping, double size, int qty)
+        //{
 
-            double price = (pizzaPrice + topping + size) * qty;
+        //    double price = (pizzaPrice + topping + size) * qty;
 
-            return price;
-        }
+        //    return price;
+        //}
 
-        public string calculateTotalPrice(double price, int qty)
-        {
+        //public string calculateTotalPrice(double price, int qty)
+        //{
 
-            totalPrice += price;
-            totalQty += qty;
-            var mes = "Your order has now " + totalQty + " pizzas, and the total is " + totalPrice + " CAD";
+        //    totalPrice += price;
+        //    totalQty += qty;
+        //    var mes = "Your order has now " + totalQty + " pizzas, and the total is " + totalPrice + " CAD";
 
-            return mes;
-        }
+        //    return mes;
+        //}
     }
 }
