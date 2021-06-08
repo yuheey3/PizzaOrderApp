@@ -6,39 +6,39 @@
     <StackLayout>
         <StackLayout>
             <Label Text= "My Current Order" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="60" FontSize="Large" BackgroundColor="DodgerBlue" TextColor="White"/>
-            <Label Text="{Binding TotalPrice, StringFormat='{0:N}$'}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,10" FontAttributes="Bold"/>
+            <Label Text="{Binding TotalPrice, StringFormat='${0:D2]}'}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,10" FontAttributes="Bold"/>
             <Label Text="{Binding TotalQty}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,20" FontAttributes="Bold"/>
         </StackLayout>
         <StackLayout>
-        <ListView x:Name="myOrderList" ItemSelected="myOrderList_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <!--<TextCell Text="{Binding topping}" Detail="{Binding size}"  TextColor="DeepPink" />-->
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+            <ListView x:Name="myOrderList" ItemSelected="myOrderList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
 
-                            <StackLayout Orientation="Vertical" Spacing="10" >
-                                <Label Text="{Binding topping, StringFormat='Topping: {0:D2}'}"  FontSize="Small"/>
-                                <Label Text="{Binding size, StringFormat='Size: {0:D2}'}"  FontSize="Small" />
-                            </StackLayout>
-                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Spacing="10">
-                                <Label Text="{Binding price, StringFormat='{0:N}$'}"  FontSize="Small"/>
-                                <Label Text="{Binding qty, StringFormat='Quantity: {0:D1}'}" FontSize="Small"/>
-                            </StackLayout>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
 
-                        </StackLayout>
-                        <ViewCell.ContextActions>
-                            <MenuItem Text="Delete" Clicked="Delete_Clicked" CommandParameter="{Binding .}"/>
-                        </ViewCell.ContextActions>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                <StackLayout Orientation="Vertical" Spacing="10" >
+                                    <Label Text="{Binding topping, StringFormat='Topping: {0:D2}'}"  FontSize="Small"/>
+                                    <Label Text="{Binding size, StringFormat='Size: {0:D2}'}"  FontSize="Small" />
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Spacing="10">
+                                    <Label Text="{Binding price, StringFormat='${0:N}'}"  FontSize="Small"/>
+                                    <Label Text="{Binding qty, StringFormat='Quantity: {0:D1}'}" FontSize="Small"/>
+                                </StackLayout>
+
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="Delete_Clicked" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
         <StackLayout Margin="100,50,100,100">
-        <Button Text="Place Order" Clicked="NavigateToManageButton_Clicked" BackgroundColor="Orange" TextColor="Black" FontAttributes="Bold"/>
-            </StackLayout>
+            <Button Text="Place Order" Clicked="PlaceOrderButton_Clicked" BackgroundColor="Orange" TextColor="Black" FontAttributes="Bold"/>
         </StackLayout>
+    </StackLayout>
 
 
 

@@ -3,25 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Assignment1.MainPage">
 
-    <!--<Grid
-     
-        ColumnSpacing="10"
-     >
 
-        
-    <Label Grid.Row="0" Grid.Column="4"  Text="Pizza App" BackgroundColor="Blue" FontSize="Large"
-              TextColor="white" ></Label>
-             <Label Grid.Column="0" Grid.Row="1" Text="3" FontSize="Large"
-               BackgroundColor="Beige"></Label>
-
-            <Image Source="https://images.freeimages.com/images/large-previews/0b1/sweet-cats-2-1563060.jpg" Grid.Row="1" Grid.Column="0"/>
-         <Label Grid.Column="1" Grid.Row="1" Text="MY ORDER" FontSize="Medium"
-               BackgroundColor="Blue"/>
-            <Label Grid.Row="1" Grid.Column="2" Text="4"
-                   BackgroundColor="Yellow" ></Label>
-
-        
-    </Grid>-->
 
     <StackLayout Orientation="Vertical"  >
         <Label Text= "Pizza App" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="200" FontSize="Large" BackgroundColor="DodgerBlue" TextColor="White"/>

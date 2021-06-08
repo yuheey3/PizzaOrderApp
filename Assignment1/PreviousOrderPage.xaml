@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Assignment1.PreviousOrderPage">
+    <StackLayout>
+        <StackLayout>
+            <Label FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="60" FontSize="Large" BackgroundColor="DodgerBlue" TextColor="White"/>
+            <Label Text="Transaction History" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,15,0,10" FontAttributes="Bold"/>
+        </StackLayout>
+
+        <StackLayout Margin="0,0,0,100">
+            <ListView x:Name="historyOrderList" ItemSelected="historyOrderList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextCell Text="{Binding topping}" Detail="{Binding size}"  TextColor="DeepPink" />-->
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+
+                                <StackLayout Orientation="Vertical" Spacing="10" >
+                                    <Label Text="{Binding dateTime, StringFormat='{0:D}'}"  FontSize="Small" FontAttributes="Bold"  TextColor="red"/>
+
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Spacing="10">
+                                    <Label Text="{Binding price, StringFormat='${0:N}'}"  FontSize="Small"/>
+                                    <Label Text="{Binding qty, StringFormat='Quantity: {0:D}'}" FontSize="Small"/>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

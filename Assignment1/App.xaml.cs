@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 using Assignment1.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

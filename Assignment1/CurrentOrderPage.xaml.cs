@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 using System.Collections.Generic;
 using Assignment1.Model;
 using Xamarin.Forms;
@@ -12,14 +15,12 @@ namespace Assignment1
         private string totalPrice = "none";
         private string totalQty = "none";
 
-        // public string totalPriceQty { get; } = "MY TEXT";
-
         public CurrentOrderPage(Manager m)
         {
             InitializeComponent();
             manager = m;
             myOrderList.ItemsSource = manager.myOrders;
-           // public string totalPriceQty { get; } = "MY TEXT";
+
             totalPrice = (manager.prices.totalPrice).ToString();
             totalQty = (manager.prices.totalQty).ToString();
             BindingContext = this;
@@ -47,19 +48,28 @@ namespace Assignment1
         }
         void myOrderList_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-          
+
         }
 
-        async void NavigateToManageButton_Clicked(System.Object sender, System.EventArgs e)
+        async void PlaceOrderButton_Clicked(System.Object sender, System.EventArgs e)
         {
+            //add history order 
+            var date = DateTime.Now.ToString("MMMM d, yyyy, h:mm tt", System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            HistoryOrder historyOrder = new HistoryOrder(Convert.ToInt32(manager.getTotalQty()), manager.getTotalPrice(), date);
+
+            manager.addHistoryOrder(historyOrder);
+
+            manager.initializeValue();
+
             _ = DisplayAlert("Success!!", "Thank you for your ordering!", "OK");
+
             await Navigation.PushAsync(new ManagerPage(manager));
         }
 
         void Delete_Clicked(System.Object sender, System.EventArgs e)
         {
             var item = sender as MenuItem;
-            
+
             var myOrder = (item.CommandParameter as MyOrder);
 
             //get quantity 
@@ -75,7 +85,7 @@ namespace Assignment1
             TotalQty = (manager.prices.totalQty).ToString();
 
             manager.deletemyOrder(myOrder);
-            
+
         }
     }
 }

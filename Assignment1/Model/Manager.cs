@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -10,22 +13,26 @@ namespace Assignment1.Model
         public List<Topping> toppings = new List<Topping>();
         public List<PizzaSize> sizes = new List<PizzaSize>();
         public ObservableCollection<MyOrder> myOrders = new ObservableCollection<MyOrder>();
+        public List<HistoryOrder> historyOrders = new List<HistoryOrder>();
         public Price prices = new Price();
 
-        public void addTopping(Topping t)
-        {
-            toppings.Add(t);
-        }
-
-       public void addMyOrderToList(MyOrder o)
+        //my order
+        public void addMyOrderToList(MyOrder o)
         {
             myOrders.Add(o);
         }
-
-        public void AddTotalPriceAndQty(double p, double q )
+        public void deletemyOrder(MyOrder o)
         {
-       
-            prices.totalPrice =p;
+            myOrders.Remove(o);
+        }
+
+
+
+        //price
+        public void AddTotalPriceAndQty(double p, double q)
+        {
+
+            prices.totalPrice = p;
             prices.totalQty = q;
         }
 
@@ -38,10 +45,7 @@ namespace Assignment1.Model
             prices.totalPrice -= p;
         }
 
-        public void deletemyOrder(MyOrder o)
-        {
-            myOrders.Remove(o);
-        }
+      
         public double calculatePizzaPrice(double topping, double size, int qty)
         {
 
@@ -67,6 +71,16 @@ namespace Assignment1.Model
         {
             return prices.totalQty;
         }
+
+
+        //history order
+        public void addHistoryOrder(HistoryOrder h)
+        {
+            historyOrders.Add(h);
+        }
+
+
+        //others
         public void initializeValue()
         {
             prices.totalPrice = 0;
@@ -74,12 +88,24 @@ namespace Assignment1.Model
             myOrders.Clear();
         }
 
+        public bool isQtyExist(string q)
+        {
+            if (q.Equals("0") || q.Equals("none"))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
         public Manager()
         {
-            toppings.Add(new Topping("Vegetables", 1));
+            toppings.Add(new Topping("Vegetables", 1.5));
             toppings.Add(new Topping("Meat balls", 2));
-            toppings.Add(new Topping("Peperony", 3));
+            toppings.Add(new Topping("Peperony", 3.5));
             toppings.Add(new Topping("Mushrooms", 4));
             toppings.Add(new Topping("Extra cheese", 5));
             toppings.Add(new Topping("Sausage", 6));

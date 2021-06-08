@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -22,7 +25,7 @@ namespace Assignment1
         private double sizePrice;
 
         Manager manager = new Manager();
-       
+
         Price price = new Price();
 
 
@@ -33,9 +36,6 @@ namespace Assignment1
             toppingList.ItemsSource = manager.toppings;
             sizeList.ItemsSource = manager.sizes;
             BindingContext = this;
-
-
-
 
         }
 
@@ -72,9 +72,6 @@ namespace Assignment1
             }
         }
 
-
-
-
         void addNewPizza(System.Object sender, System.EventArgs e)
         {
             DisplayAlert("Thank  You", "All DONE!!!", "OK");
@@ -83,15 +80,12 @@ namespace Assignment1
         {
 
             ToppingLabel = (e.SelectedItem as Topping).name;
-            //toppingPrice = price.getToppingPrice(ToppingLabel);
-
             toppingPrice = (e.SelectedItem as Topping).price;
         }
 
         void sizeList_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             SizeLabel = (e.SelectedItem as PizzaSize).name;
-            //sizePrice = price.getSizePrice(SizeLabel);
             sizePrice = (e.SelectedItem as PizzaSize).price;
         }
 
@@ -104,28 +98,40 @@ namespace Assignment1
 
         void buyButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            //calculate single order of price
-            double singleOrderPrice = manager.calculatePizzaPrice(toppingPrice, sizePrice, Convert.ToInt32(QtyLabel));
+            //when quantity is more than 0 
+            if (manager.isQtyExist(QtyLabel))
 
-            //calculate total class and return string for messages
-            var mes = manager.calculateTotalPrice(singleOrderPrice, Convert.ToInt32(QtyLabel));
-           
-            //add single order to myOrder class
-            MyOrder myOrder = new MyOrder();
-            myOrder.addMyOrder(ToppingLabel,SizeLabel, Convert.ToInt32(QtyLabel),singleOrderPrice);
+            {
+                //calculate single order of price
+                double singleOrderPrice = manager.calculatePizzaPrice(toppingPrice, sizePrice, Convert.ToInt32(QtyLabel));
 
-            //assign to price object
-            price.totalPrice = manager.getTotalPrice();
-            price.totalQty = manager.getTotalQty();
+                //calculate total class and return string for messages
+                var mes = manager.calculateTotalPrice(singleOrderPrice, Convert.ToInt32(QtyLabel));
 
-            //add order information to manager class
-            manager.addMyOrderToList(myOrder);
-            manager.AddTotalPriceAndQty(price.totalPrice, price.totalQty);
+                //add single order to myOrder class
+                MyOrder myOrder = new MyOrder();
+                myOrder.addMyOrder(ToppingLabel, SizeLabel, Convert.ToInt32(QtyLabel), singleOrderPrice);
 
-            ToppingLabel = "none";
-            SizeLabel = "none";
-            QtyLabel = "none";
-            DisplayAlert("Success!!", mes, "OK");
+                //assign to price object
+                price.totalPrice = manager.getTotalPrice();
+                price.totalQty = manager.getTotalQty();
+
+                //add order information to manager class
+                manager.addMyOrderToList(myOrder);
+                manager.AddTotalPriceAndQty(price.totalPrice, price.totalQty);
+
+                ToppingLabel = "none";
+                SizeLabel = "none";
+                QtyLabel = "none";
+
+                DisplayAlert("Success!!", mes, "OK");
+
+            }
+            else
+            {
+
+                DisplayAlert("Alert", "Please select at least 1 quantity", "OK");
+            }
         }
 
         void resetButton_Clicked(System.Object sender, System.EventArgs e)

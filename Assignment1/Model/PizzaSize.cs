@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 namespace Assignment1.Model
 {
     public class PizzaSize

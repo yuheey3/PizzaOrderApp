@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 namespace Assignment1.Model
 {
     public class MyOrder
@@ -10,7 +13,7 @@ namespace Assignment1.Model
         private double _price;
 
 
-     
+
 
         public int qty //backing fields
         {
@@ -48,7 +51,7 @@ namespace Assignment1.Model
 
         public MyOrder(string t, string s, int q, double p)
         {
- 
+
             this.topping = t;
             this.size = s;
             this.qty = q;

@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 using System.Collections.Generic;
 using Assignment1.Model;
 using Xamarin.Forms;
@@ -13,8 +16,7 @@ namespace Assignment1
         {
             InitializeComponent();
             manager = m;
-            //sizeList.ItemsSource = manager.sizes;
-            //BindingContext = this;
+
         }
 
         async void CurrentOrder_Clicked(System.Object sender, System.EventArgs e)
@@ -32,6 +34,10 @@ namespace Assignment1
             manager.initializeValue();
             await Navigation.PushAsync(new MainPage(manager));
         }
-    
+        async void PreviousOrder_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new PreviousOrderPage(manager));
+        }
+
     }
 }

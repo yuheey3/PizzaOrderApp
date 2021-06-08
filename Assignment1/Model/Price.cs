@@ -1,4 +1,7 @@
-﻿using System;
+﻿//June7,2021
+//Yuki Waka
+//141082180
+using System;
 namespace Assignment1.Model
 {
     public class Price
@@ -33,22 +36,6 @@ namespace Assignment1.Model
 
         }
        
-        //public double calculatePizzaPrice(double topping, double size, int qty)
-        //{
-
-        //    double price = (pizzaPrice + topping + size) * qty;
-
-        //    return price;
-        //}
-
-        //public string calculateTotalPrice(double price, int qty)
-        //{
-
-        //    totalPrice += price;
-        //    totalQty += qty;
-        //    var mes = "Your order has now " + totalQty + " pizzas, and the total is " + totalPrice + " CAD";
-
-        //    return mes;
-        //}
+      
     }
 }
